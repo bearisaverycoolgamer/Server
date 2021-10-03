@@ -1,1 +1,1 @@
-pyinstaller --onefile stub.py
+pyinstaller --onefile ./Temp/stub.py
