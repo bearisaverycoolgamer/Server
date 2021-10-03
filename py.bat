@@ -1,1 +1,1 @@
-pyinstaller --onefile EXEUGSAP.py
+pyinstaller --onefile stub.py
